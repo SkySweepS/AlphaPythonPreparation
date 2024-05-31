@@ -1,9 +1,16 @@
-import math
-
 n = int(input())
-for col in range(1, n + 1):
-    start = 1
-    for row in range(1, col + 1):
-        print(int(math.pow(start, 2)), end=" ")
-        start = int(math.pow(start, 2))
-    print()
+
+new = 1
+new_list = []
+count = n - 1
+for i in range(1, n + 1):
+    new *= 2
+    row = new
+    count = n - i
+    for i1 in range(1, n):
+        if count >= n - i1:
+            new_list.append(row)
+            count -= 1
+        row *= 2
+
+print(sum(new_list))
